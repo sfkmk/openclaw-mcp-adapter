@@ -45,6 +45,35 @@
               "type": "object",
               "additionalProperties": { "type": "string" },
               "description": "For http: request headers (supports ${VAR} interpolation)"
+            },
+            "authTokenCommand": {
+              "type": "string",
+              "description": "For http: command used to fetch an OAuth/access token dynamically"
+            },
+            "authTokenArgs": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "For http: arguments for authTokenCommand"
+            },
+            "authTokenRefreshArgs": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "For http: additional arguments appended during forced token refresh"
+            },
+            "authTokenHeader": {
+              "type": "string",
+              "default": "Authorization",
+              "description": "HTTP header name used for dynamic token auth"
+            },
+            "authTokenPrefix": {
+              "type": "string",
+              "default": "Bearer",
+              "description": "Prefix prepended to token value (empty string for raw token)"
+            },
+            "authTokenTtlSeconds": {
+              "type": "number",
+              "default": 2700,
+              "description": "Cached token TTL in seconds before proactive refresh"
             }
           }
         }
